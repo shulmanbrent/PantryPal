@@ -1,1 +1,1 @@
-web: gunicorn PantryPal.wsgi --log-file - 
+web: python manage.py collectstatic --noinput; gunicorn PantryPal.wsgi
