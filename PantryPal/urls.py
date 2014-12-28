@@ -9,5 +9,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^PantryPal_app/', include('PantryPal_app.urls')),
-    (r'^static/(?P.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^static/', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )
