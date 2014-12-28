@@ -92,10 +92,14 @@ USE_TZ = True
 STATIC_PATH = os.path.join(PROJECT_PATH,'static')
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles/')
 STATIC_URL = '/static/' # You may find this is already defined as such.
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 STATICFILES_DIRS = (
     STATIC_PATH,
-    os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, 'static'),
 )
 
 # Template files (HTML)
