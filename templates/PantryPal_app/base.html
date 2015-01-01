@@ -81,13 +81,6 @@
 	<div class="row-fluid">
 		<div class="wrap-hero">
 			<div class="hero-unit text-center">
-				<!--LOGO-->
-				<div class="logo">
-					<a href="#" title="Scroll&amp;Strap">
-						<img src="{% static "img/logo_1.png" %}" alt="logo"/>
-					</a>
-				</div>
-				<!--/ LOGO-->
 				
 					<div class="inner-wrap-hero">
 					
@@ -98,7 +91,8 @@
 							<form class="form-signin" id="user_form" method="POST" action="/PantryPal_app/">
             					{% csrf_token %}
 					            <!-- Display the search form elements here -->
-					            <input type="text" size="50" name="query" value="" placeholder="Search recipes..." id="query" style="width: 30%"/>
+					            <br>
+					            <input type="text" size="50" name="query" value="" placeholder="Search recipes..." id="query" style="width: 30%; height: 40px; "/>
 					            <br>
 					            <span id="form_submit"><a href="#features-section" onClick="$(this).closest('form').submit();">Submit</a></span>
 					            <br />
@@ -1165,8 +1159,11 @@ jQuery('#header-section').bind('inview', function (event, visible) {
 			$(document).keypress(function(e) {
 			    if ((e.keyCode || e.which) == 13) {
 			        // Enter key pressed
-			        $('#form_submit').click();
-			        $('#features-section').scroll();
+			        // $('#form_submit').click();
+			            $('html, body').animate({
+					        scrollTop: $('#features-section').offset().top
+					    }, 1000);
+			        // $('#features-section').scroll();
 			    }
 			});
 		</script>
