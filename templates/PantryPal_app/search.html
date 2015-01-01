@@ -1,0 +1,23 @@
+{% if result_list %}
+<!-- Display search results in an ordered list -->
+<div class="row-fluid">
+
+    {% for result in result_list %}
+    <div class="span3 effect-box-1">
+        <span class="label label-warning lines-bg-color text-center" style="padding: 0px;">
+            <img src="{{ result.imageUrlsBySize.90 }}" style="min-width: 100%">
+        </span>
+        <h4 class="features-title" style="text-align: center;"> 
+            {{ result.recipeName }}
+        </h4>
+        <!-- <p class=""> We combine creative forces with systematic activists. All ideas require implementation and our multi-disciplined netproject fosters a wide array of abilities that empower visionaries and entrepreneurs to lead meaningful brands.</p> -->
+    </div><!-- END FEATURE ITEM-->
+    <!-- {# if the the forloop counter is divisible by 4, close the <li> tag and open a new one #} -->
+    {% if forloop.counter|divisibleby:4 %}
+    </div>
+    <div class="row-fluid">
+    {% endif %}
+    
+    {% endfor %}
+
+{% endif %}
