@@ -9,7 +9,7 @@ def run_query(search_terms):
     # Specify how many results we wish to be returned per page.
     # Offset specifies where in the results list to start from.
     # With maxResults = 10 and start = 11, this would start from page 2.
-    maxResult = 16
+    maxResult = 1000
     start = 0
 
     # Setup authentication with the Yummly servers.
@@ -53,7 +53,16 @@ def run_query(search_terms):
 
         # Convert the string response to a Python dictionary object.
         json_response = json.loads(response)
-        for recipe in json_response['matches']:
+
+        # Check is results empty to prevent running through the rest of the code
+        if not json_response['matches']: return results
+
+        # Sort results based on number of ingredients
+        r = json_response['matches']
+        r = sorted(r, cmp=lambda x,y: cmp(len(x['ingredients']), len(y['ingredients'])))
+
+        for recipe in r:
+            if r.index(recipe) >= 16: break
             r_id = recipe['id']
             results.append(run_get(r_id))
 
