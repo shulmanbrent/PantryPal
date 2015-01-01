@@ -39,7 +39,7 @@
 <!--START MAIN-WRAPPER--> 
 
 <!-- TOP SECTION-->
-<section class="headertop needhead" id="header-section">
+<section class="headertop needhead" id="header-section" style="background-image: url({% static "img/fruit_background.jpg" %})">
 
  <!-- ################-->
  <!-- START TOP MENU -->
@@ -95,10 +95,11 @@
 							
 						<span>PANTRY PAL</span>
 							<span class="visible-desktop">Helping you decide what to make and how to make it</span>
-							<form class="form-signin span8" id="user_form" method="POST" action="/PantryPal_app/">
+							<form class="form-signin" id="user_form" method="POST" action="/PantryPal_app/">
             					{% csrf_token %}
 					            <!-- Display the search form elements here -->
-					            <input type="text" size="50" name="query" value="" id="query" />
+					            <input type="text" size="50" name="query" value="" placeholder="Search recipes..." id="query" style="width: 30%"/>
+					            <br>
 					            <span id="form_submit"><a href="#features-section" onClick="$(this).closest('form').submit();">Submit</a></span>
 					            <br />
 					        </form>
