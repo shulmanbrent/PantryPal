@@ -8,7 +8,7 @@ def run_query(search_terms):
     # Specify how many results we wish to be returned per page.
     # Offset specifies where in the results list to start from.
     # With maxResults = 10 and start = 11, this would start from page 2.
-    maxResult = 12
+    maxResult = 16
     start = 0
 
     # Setup authentication with the Yummly servers.
