@@ -94,7 +94,7 @@
 					            <br>
 					            <input type="text" size="50" name="query" value="" placeholder="Search recipes..." id="query" style="width: 30%; height: 40px; "/>
 					            <br>
-					            <span id="form_submit"><a href="#features-section" onClick="$(this).closest('form').submit();">Submit</a></span>
+					            <span id="form_submit"><a href="#features-section" style="display:none; "onClick="$(this).closest('form').submit();">Submit</a></span>
 					            <br />
 					        </form>
 						
@@ -959,6 +959,7 @@
 jQuery(document).ready(function(){
 	jQuery('#nav').localScroll(1000);
 	jQuery('#form_submit').localScroll();
+	jQuery('#go_up').localScroll();
 	jQuery('#nav2').localScroll(1000);
 	jQuery('#nav3').localScroll(1000);
 	jQuery('#nav4').localScroll(1000);

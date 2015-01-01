@@ -703,6 +703,16 @@ PARALLAX EFFECTS...........................1474
 		white-space:normal;
 	}
 
+	.label img:hover {
+	    /*background: #fff;*/
+	   /* -moz-border-radius: 6px;
+	    -webkit-border-radius: 6px;
+	    border-radius: 6px;*/
+	    -moz-box-shadow: 0 2px 15px 0 rgba(0,0,0,.6);
+	    -webkit-box-shadow: 0 2px 15px 0 rgba(0,0,0,.6);
+	    box-shadow: 0 2px 15px 0 rgba(0,0,0,.6);
+	}
+
 	i.fa-icon-large{
 		font-size:340%;
 	}
