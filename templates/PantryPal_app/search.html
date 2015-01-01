@@ -5,13 +5,18 @@
 
     {% for result in result_list %}
     <div class="span3 effect-box-1 active">
-        <span class="label label-warning lines-bg-color text-center" style="padding: 0px;">
-            <img src="{{ result.imageUrlsBySize.90 }}" style="min-width: 100%; border-radius: 30px;">
+        <span class="label label-warning lines-bg-color text-center" style="padding: 0px; background:transparent;">
+            <a href="{{ result.sourceUrl }}"><img src="{{ result.imageUrl }}" style="min-width: 100%; border-radius: 30px;"></a>
         </span>
         <h4 class="features-title" style="text-align: center;"> 
-            {{ result.recipeName }}
+            {{ result.name }}
         </h4>
-        <!-- <p class=""> We combine creative forces with systematic activists. All ideas require implementation and our multi-disciplined netproject fosters a wide array of abilities that empower visionaries and entrepreneurs to lead meaningful brands.</p> -->
+        <ul>
+            {% for ingredient in result.ingredients %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+ <!--        <p class=""> We combine creative forces with systematic activists. All ideas require implementation and our multi-disciplined netproject fosters a wide array of abilities that empower visionaries and entrepreneurs to lead meaningful brands.</p> -->
     </div><!-- END FEATURE ITEM-->
     <!-- {# if the the forloop counter is divisible by 4, close the <div> tag and open a new one #} -->
     {% if forloop.counter|divisibleby:4 %}
