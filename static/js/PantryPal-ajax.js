@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$("#user_form").submit(function(event) {
-		$("#search_content").hide();
+		// $("#search_content").hide();
 	    $.post('/PantryPal_app/search/', $(this).serialize() , function(data){
 	    	$("#search_content").html(data);
 	    });
