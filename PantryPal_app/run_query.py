@@ -14,7 +14,7 @@ def run_query(search_terms):
     # Setup authentication with the Yummly servers.
     yummly_app_id = '92d67e12'
     yummly_api_key = '1c9dd40cdaa1ee28b9a65429530fcfe6'
-    
+    5
 
     search_terms = search_terms.split()
 
@@ -48,7 +48,7 @@ def run_query(search_terms):
     results = []
 
     try:
-        # Connect to the server and read the response generated.
+         #Connect to the server and read the response generated.
         response = urllib2.urlopen(search_url).read()
 
         # Convert the string response to a Python dictionary object.
