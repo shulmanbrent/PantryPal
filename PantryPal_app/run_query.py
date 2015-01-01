@@ -1,8 +1,9 @@
 import json
 import urllib, urllib2
+from PantryPal_app.run_get import run_get
 
 def run_query(search_terms):
-    # Specify the root
+    # Specified the root
     root_url = 'http://api.yummly.com/v1/api/recipes?'
 
     # Specify how many results we wish to be returned per page.
@@ -14,7 +15,6 @@ def run_query(search_terms):
     # Setup authentication with the Yummly servers.
     yummly_app_id = '92d67e12'
     yummly_api_key = '1c9dd40cdaa1ee28b9a65429530fcfe6'
-    5
 
     search_terms = search_terms.split()
 
@@ -54,7 +54,8 @@ def run_query(search_terms):
         # Convert the string response to a Python dictionary object.
         json_response = json.loads(response)
         for recipe in json_response['matches']:
-            results.append(recipe)
+            r_id = recipe['id']
+            results.append(run_get(r_id))
 
         # Loop through each page returned, populating out results list.
         #for result in json_response['d']['results']:
