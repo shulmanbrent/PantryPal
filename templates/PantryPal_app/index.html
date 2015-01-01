@@ -3,18 +3,87 @@
 {% load static %}
 
 {% block body_block %}
-    <!-- testing search functionality -->
+<div class="container">
+    
+    <!--###################-->
+    <!-- START PORTFOLIO ITEM -->
+    <!--###################-->
+    <div id="container-folio" class="row">
+    
+    
+    
+        <!-- portfolio item -->
+        <div class="span6  project-item graphics box">
+        
+            <div id="myCarousel" class="carousel slide">
+                
+                  <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="active item">
+                        <a rel="prettyPhoto[gallery]" href="{% static "img/SnapShot.png" %}" title="portfolio image">
+                            <img src="{% static "img/SnapShot.png" %}" alt="ScrollStrap" />
+                        </a>
 
-        {% if result_list %}
-        <!-- Display search results in an ordered list -->
-        <div style="clear: both;">
-            <ol>
-            {% for result in result_list %}
-                <li>
-                    <strong><a href="{{ result.smallImageUrls }}">{{ result.recipeName }}</a></strong><br />
-                </li>
-            {% endfor %}
-            </ol>
-        </div>
-        {% endif %}
-{% endblock body_block %}
+                    </div>
+                    <div class="item">
+                        <a rel="prettyPhoto[gallery]" href="{% static "img/SnapShot.png" %}" title="portfolio image">
+                            <img src="{% static "img/SnapShot.png" %}" alt="ScrollStrap" />
+                        </a>
+                        <div class="carousel-caption">
+                            
+                                <p class="">
+                                    <strong><span class="main-color">THIS Bootstrap</span></strong> 
+                                    Carousel integrated with PrettyPhoto jQuery plugin. Just click on photo for enlarge it.         
+                                    </p>
+                            
+                        </div>
+                    </div>
+                    <div class="item">
+                        <a rel="prettyPhoto[gallery]" href="{% static "img/SnapShot.png" %}" title="portfolio image">
+                            <img src="{% static "img/SnapShot.png" %}" alt="ScrollStrap" />
+                        </a>
+                        <div class="carousel-caption">
+                            
+                                <p class="">
+                                    <strong><span class="main-color">THIS Bootstrap</span></strong> 
+                                    Carousel integrated with PrettyPhoto jQuery plugin. Just click on photo for enlarge it.         
+                                    </p>
+                            
+                        </div>
+                    </div>
+                </div>
+                  <!-- Carousel nav -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            </div>
+            
+        </div><!-- END: portfolio item -->
+
+        <!-- portfolio item -->
+        <div class="span6  project-item graphics box">
+             <h4 class="main-color-line">
+                <span class="white">
+                    <strong>INTRODUCING <span class="main-color">SCROLL&amp;STRAP</span></strong>  
+                </span>
+            </h4>
+                            
+            <p class="lead">
+                We work really hard for build this awesome template!
+                We hope that this project will be appreciated by you and your customers!
+            </p>
+            <p class="lead">
+                We work really hard for build this awesome template!
+                We hope that this project will be appreciated by you and your customers!
+            </p>                  
+                                
+            <p class="">                                
+            
+                <a href="#" class="btn btn-action">
+                    <i class="fa-icon-link"></i> 
+                    Visit project site
+                </a>
+            </p>              
+        </div><!-- END: portfolio item -->
+    </div>
+</div>
+{% endblock %}
