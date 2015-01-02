@@ -2,7 +2,7 @@ import json
 import urllib, urllib2
 from PantryPal_app.run_get import run_get
 
-def run_query(search_terms):
+def run_query(search_terms, max_time):
     # Specified the root
     root_url = 'http://api.yummly.com/v1/api/recipes?'
 
@@ -21,12 +21,13 @@ def run_query(search_terms):
     
     # Construct the latter part of our request's URL.
     # Sets the format of the response to JSON and sets other properties.
-    search_url = "{0}_app_id={1}&_app_key={2}&maxResult={3}&start={4}".format(
+    search_url = "{0}_app_id={1}&_app_key={2}&requirePictures=true&maxResult={3}&start={4}&maxTotalTimeInSeconds={5}".format(
         root_url,
         yummly_app_id,
         yummly_api_key,
         maxResult,
-        start)
+        start,
+        max_time)
     
     # for term in query:
     #     ingredient = "&allowedIngredient[]={0}".format(
@@ -55,7 +56,7 @@ def run_query(search_terms):
         json_response = json.loads(response)
 
         # Check is results empty to prevent running through the rest of the code
-        if not json_response['matches']: return results
+        # if not json_response['matches']: return results
 
         # Sort results based on number of ingredients
         r = json_response['matches']
