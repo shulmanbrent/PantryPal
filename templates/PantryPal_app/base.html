@@ -92,9 +92,10 @@
             					{% csrf_token %}
 					            <!-- Display the search form elements here -->
 					            <br>
-					            <input type="text" size="50" name="query" value="" placeholder="Search recipes with your ingredients..." id="query" style="width: 30%; height: 40px; "/>
+					            <input type="text" size="50" name="query" value="" placeholder="Search recipes with your ingredients..." id="query" style="width: 30%; height: 40px; ">
+					            <input type="text" size="60" name="time" value="" placeholder="How long are you looking to spend?" id="time" style="width: 30%; height: 40px; ">
 					            <br>
-					            <span id="form_submit"><a href="#features-section" style="display:none; "onClick="$(this).closest('form').submit();">Submit</a></span>
+					            <span id="form_submit"><a href="#features-section" style="display:none;" onClick="$(this).closest('form').submit();">Submit</a></span>
 					            <br />
 					        </form>
 						
@@ -134,6 +135,11 @@
 					</div>
 				</header>
 			</div>
+		</div>
+
+		<div id="spinner" style="text-align:center; display:none; width: 100%; height 300px;">
+			<i class="fa-icon-spinner fa-icon-spin fa-icon-large"></i>
+			<h2><span class="main-color">Your recipes</span> are on the way!</h2>
 		</div>
 
 		<!-- /RECIPES HEADER-->
@@ -1132,10 +1138,10 @@ jQuery('#header-section').bind('inview', function (event, visible) {
 			$(document).keypress(function(e) {
 			    if ((e.keyCode || e.which) == 13) {
 			        // Enter key pressed
-			        // $('#form_submit').click();
-			            $('html, body').animate({
-					        scrollTop: $('#features-section').offset().top
-					    }, 1000);
+			        $('#form_submit a').click();
+		            $('html, body').animate({
+				        scrollTop: $('#features-section').offset().top
+				    }, 1000);
 			        // $('#features-section').scroll();
 			    }
 			});
