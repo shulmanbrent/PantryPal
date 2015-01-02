@@ -24,7 +24,12 @@ def run_get(recipe_id):
         # Convert the string response to a Python dictionary object.
         json_response = json.loads(response)
         results['name'] = json_response['name']
-        results['imageUrl'] = json_response['images'][0]['imageUrlsBySize']['360']
+
+        if not json_response['images'][0]['imageUrlsBySize']['360'] == 'null=s360-c':
+            results['imageUrl'] = json_response['images'][0]['imageUrlsBySize']['360']
+        else:
+            results['imageUrl'] = json_response['images'][0]['imageUrlsBySize']['180']
+
         results['ingredients'] = json_response['ingredientLines']
         results['sourceUrl'] = json_response['source']['sourceRecipeUrl']
 
