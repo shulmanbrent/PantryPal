@@ -86,14 +86,15 @@
 					
 						<h1 class="text-center main-color"> 
 							
-						<span>PANTRY PAL</span>
+						<span style="font-family: serif; font-weight: 500; padding: 20px;">PANTRY PAL</span>
 							<span class="visible-desktop">Helping you decide what to make and how to make it</span>
 							<form class="form-signin" id="user_form" method="POST" action="/PantryPal_app/">
             					{% csrf_token %}
 					            <!-- Display the search form elements here -->
 					            <br>
 					            <input type="text" size="50" name="query" value="" placeholder="Search recipes with your ingredients..." id="query" style="width: 30%; height: 40px; ">
-					            <input type="text" size="60" name="time" value="" placeholder="How long are you looking to spend?" id="time" style="width: 30%; height: 40px; ">
+					            <br>
+					            <input type="text" size="60" name="time" value="60" placeholder="How long are you looking to spend?" id="time" style="width: 30%; height: 40px; ">
 					            <br>
 					            <span id="form_submit"><a href="#features-section" style="display:none;" onClick="$(this).closest('form').submit();">Submit</a></span>
 					            <br />
@@ -129,7 +130,7 @@
 					<div class="text-center page-header">
 						<h1 class="">
 							<span class="white"><!-- WHITE SPACE-->
-								YOUR <span class="main-color">RECIPES</span> 
+								OUR <span class="main-color">RECIPES</span> 
 							</span>	
 						</h1>
 					</div>
@@ -139,7 +140,7 @@
 
 		<div id="spinner" style="text-align:center; display:none; width: 100%; height 300px;">
 			<i class="fa-icon-spinner fa-icon-spin fa-icon-large"></i>
-			<h2><span class="main-color">Your recipes</span> are on the way!</h2>
+			<h2><span class="main-color">Your</span> choices are on the way!</h2>
 		</div>
 
 		<!-- /RECIPES HEADER-->
