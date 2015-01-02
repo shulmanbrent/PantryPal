@@ -5,6 +5,8 @@ $(document).ready(function(){
 	    });
 	    $("#search_content").show();
 	    $("#search_content").fadeIn();
+	    //allow for smooth scroll
+	    $('#go_up').localScroll();
 	    event.preventDefault();
 	});
 });

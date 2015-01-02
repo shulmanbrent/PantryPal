@@ -1,7 +1,7 @@
 import json
 import urllib, urllib2
 
-def run_get(recipe_id):
+def run_get(recipe_id, term_count):
 	# Specified the root
     root_url = 'http://api.yummly.com/v1/api/recipe'
 
@@ -33,6 +33,9 @@ def run_get(recipe_id):
         results['ingredients'] = json_response['ingredientLines']
         results['sourceUrl'] = json_response['source']['sourceRecipeUrl']
 
+        # Value for number of ingredients needed
+        results['neededIngrCount'] = str(len(json_response['ingredientLines']) - term_count)
+        
         # Catch a URLError exception - something went wrong when connecting!
     except urllib2.URLError, e:
         print "Error when querying the Yummly API: ", e

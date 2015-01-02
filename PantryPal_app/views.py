@@ -38,11 +38,14 @@ def search(request):
     if request.method == 'POST':
         search_terms = request.POST['query'].strip()
         # converstion to seconds
-        max_time = str(int(request.POST['time']) * 60)
 
-        if search_terms:
-            # Run our Yummly function to get the results list!
-            result_list = run_query(search_terms, max_time)
+        if request.POST['time']:
+            max_time = str(int(request.POST['time']) * 60)
+        else:
+            max_time = '3600'
+
+        # Run our Yummly function to get the results list!
+        result_list = run_query(search_terms, max_time)
 
 
     # Return a rendered response to send to the client.

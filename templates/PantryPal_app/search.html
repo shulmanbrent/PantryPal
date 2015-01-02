@@ -1,3 +1,4 @@
+{% load static %}
 
 <!-- Display search results in an ordered list -->
 <div class="row-fluid">
@@ -6,7 +7,12 @@
     {% for result in result_list %}
     <div class="span3 effect-box-1 active">
         <span class="label label-warning lines-bg-color text-center" style="padding: 0px; background:transparent;">
-            <a href="{{ result.sourceUrl }}"><img src="{{ result.imageUrl }}" style="min-width: 100%; border-radius: 30px;"></a>
+            <div class="needed">
+                <p>{{ result.neededIngrCount }} additional item(s) needed!</p>
+            </div>            
+            <a href="{{ result.sourceUrl }}" style="z-index: 2">
+                <img src="{{ result.imageUrl }}" style="min-width: 100%; border-radius: 30px;">
+            </a>
         </span>
         <h4 class="features-title" style="text-align: center;"> 
             {{ result.name }}
@@ -25,6 +31,7 @@
     {% endif %}
 
     {% endfor %}
+
 {% else %}
     <div class="well">
         <div class="well-wrapp">
@@ -44,5 +51,6 @@
             
             </div>  
         </div>
-    </div><!-- /row-fluid-->
-{% endif %}
+{% endif %} 
+
+</div><!-- /row-fluid -->

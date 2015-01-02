@@ -35,10 +35,11 @@ def run_query(search_terms, max_time):
     #     search_url += ingredient
 
 
-    for term in search_terms:
-        ingredient = "&allowedIngredient[]={0}".format(
-            term)
-        search_url += ingredient    
+    if search_terms:
+        for term in search_terms:
+            ingredient = "&allowedIngredient[]={0}".format(
+                term)
+            search_url += ingredient    
 
 
     # Create a 'password manager' which handles authentication for us.
@@ -60,12 +61,14 @@ def run_query(search_terms, max_time):
 
         # Sort results based on number of ingredients
         r = json_response['matches']
-        r = sorted(r, cmp=lambda x,y: cmp(len(x['ingredients']), len(y['ingredients'])))
 
-        for recipe in r:
-            if r.index(recipe) >= 16: break
-            r_id = recipe['id']
-            results.append(run_get(r_id))
+        if r:
+            r = sorted(r, cmp=lambda x,y: cmp(len(x['ingredients']), len(y['ingredients'])))
+
+            for recipe in r:
+                if r.index(recipe) >= 16: break
+                r_id = recipe['id']
+                results.append(run_get(r_id, len(search_terms)))
 
         # Loop through each page returned, populating out results list.
         #for result in json_response['d']['results']:

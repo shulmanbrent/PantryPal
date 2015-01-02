@@ -80,7 +80,7 @@
 <header class="container">
 	<div class="row-fluid">
 		<div class="wrap-hero">
-			<div class="hero-unit text-center">
+			<div class="hero-unit text-center" style="padding: 0px; padding-top=10px; ">
 				
 					<div class="inner-wrap-hero">
 					
@@ -92,12 +92,11 @@
             					{% csrf_token %}
 					            <!-- Display the search form elements here -->
 					            <br>
-					            <input type="text" size="50" name="query" value="" placeholder="Search recipes with your ingredients..." id="query" style="width: 30%; height: 40px; ">
+					            <input type="text" size="50" name="query" value="" placeholder="Search recipes with your ingredients..." id="query" class="get_recipes">
 					            <br>
-					            <input type="text" size="60" name="time" value="" placeholder="How long are you looking to spend?" id="time" style="width: 30%; height: 40px; ">
+					            <input type="number" size="50" name="time" value="" placeholder="Desired preparation time? (optional)" id="time" class="get_recipes">	
 					            <br>
-					            <span id="form_submit"><a href="#features-section" style="display:none;" onClick="$(this).closest('form').submit();">Submit</a></span>
-					            <br />
+					            <span id="form_submit"><a href="#features-section" style="display:;" onClick="$(this).closest('form').submit();">Search</a></span>
 					        </form>
 						
 							
@@ -131,12 +130,19 @@
 						<h1 class="">
 							<span class="white"><!-- WHITE SPACE-->
 								OUR <span class="main-color">RECIPES</span> 
+							</span>
+							<span class="white" style="float: right;
+								"><!-- WHITE SPACE-->
+								NEXT 
+							</span>
+								<span class="white" style="float: left;"><!-- WHITE SPACE-->
+								PREV
 							</span>	
 						</h1>
 					</div>
 				</header>
 			</div>
-		</div>
+		</div><!-- /CONTAINER -->
 
 		<div id="spinner" style="text-align:center; display:none; width: 100%; height 300px;">
 			<i class="fa-icon-spinner fa-icon-spin fa-icon-large"></i>
@@ -146,9 +152,35 @@
 		<!-- /RECIPES HEADER-->
 		<div id="search_content" class="container">
 			<!-- SEARCH CONTENT WILL GO HERE -->
-			{% block body_block %}<a href="#header-section">Seach something up above!</a>{% endblock %}
+			{% block body_block %}<a href="#header-section">Search something up above!</a>{% endblock %}
 			<hr/>
-		</div><!--/CONTAINER-->
+		</div><!--/SEARCH CONTENT-->
+
+		<div class="container">
+			<div class="row-fluid">
+
+		<!-- PROJECTS HEADER-->
+				<header class="" >
+					<div class="text-center page-header">
+						<h1 class="">
+							<span id="go_up">
+								<a href="#header-section" title="" style="text-decoration: initial">
+								  <i class="fa-icon-chevron-up fa-icon-medium" style="
+								    font-size: 50px;"></i>
+								</a>
+							</span>
+							<span class="white" style="float: right; padding-bottom: 20px;"><!-- WHITE SPACE-->
+								NEXT 
+							</span>
+								<span class="white" style="float: left; padding-bottom: 20px; "><!-- WHITE SPACE-->
+								PREV
+							</span>	
+						</h1>
+					</div>
+				</header>
+			</div>
+
+		</div>
 	</div><!-- / BG WRAPER-->
 </section>
 	
