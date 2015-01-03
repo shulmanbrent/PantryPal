@@ -17,7 +17,6 @@ def run_query(search_terms, max_time, offset):
     yummly_api_key = '1c9dd40cdaa1ee28b9a65429530fcfe6'
 
     search_terms = search_terms.split()
-
     
     # Construct the latter part of our request's URL.
     # Sets the format of the response to JSON and sets other properties.
@@ -37,6 +36,8 @@ def run_query(search_terms, max_time, offset):
 
     if search_terms:
         for term in search_terms:
+            if "_" in term:
+                term = term.replace("_", "%20")
             ingredient = "&allowedIngredient[]={0}".format(
                 term)
             search_url += ingredient    

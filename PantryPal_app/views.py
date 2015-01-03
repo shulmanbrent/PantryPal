@@ -37,8 +37,8 @@ def search(request):
 
     if request.method == 'POST':
         search_terms = request.POST['query'].strip()
+        
         # converstion to seconds
-
         # handles empty max_time input
         if request.POST['time']:
             max_time = str(int(request.POST['time']) * 60)
