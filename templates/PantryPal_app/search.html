@@ -22,7 +22,6 @@
             <li>{{ ingredient }}</li>
             {% endfor %}
         </ul>
- <!--        <p class=""> We combine creative forces with systematic activists. All ideas require implementation and our multi-disciplined netproject fosters a wide array of abilities that empower visionaries and entrepreneurs to lead meaningful brands.</p> -->
     </div><!-- END FEATURE ITEM-->
     <!-- {# if the the forloop counter is divisible by 4, close the <div> tag and open a new one #} -->
     {% if forloop.counter|divisibleby:4 %}
@@ -36,21 +35,19 @@
     <div class="well">
         <div class="well-wrapp">
             <p class="lead text-large text-center">
-                Sorry! we cant find anything that includes all those ingredients.<br>Give it another try!
+                Sorry! we cant find anything that includes all those ingredients.
             </p>
-<span class="btn-box">              
-    <a href="#" class="btn btn-icon-large  btn-large  btn-action btn-block-third">
-    <i class="fa-icon-download-alt fa-icon-large"></i> 
-    Buy now!
-    </a>
-        <i class="or">- or - </i>
-        <span id="nav3">
-            <a href="#header-section" class="btn btn-icon-large  btn-large  btn-green-alt btn-block-third"><i class="fa-icon-info-sign fa-icon-large"></i> Back to Top</a>
-        </span>
-</span>
-            
-            </div>  
-        </div>
+            <p class="lead text-large text-center">
+                Go up to give it another try!
+            </p>
+            <p class="lead text-small" style="text-decoration: underline;">Some of the following changes may help</p>
+            <ul style="font-size: large;" >
+                <li>Check spelling!</li>
+                <li>Try more general keywords.</li>
+                <li>Simplify your search.</li>
+            </ul>           
+        </div>  
+    </div>
 {% endif %} 
 
 </div><!-- /row-fluid -->

@@ -2,7 +2,7 @@ import json
 import urllib, urllib2
 from PantryPal_app.run_get import run_get
 
-def run_query(search_terms, max_time):
+def run_query(search_terms, max_time, offset):
     # Specified the root
     root_url = 'http://api.yummly.com/v1/api/recipes?'
 
@@ -65,8 +65,11 @@ def run_query(search_terms, max_time):
         if r:
             r = sorted(r, cmp=lambda x,y: cmp(len(x['ingredients']), len(y['ingredients'])))
 
-            for recipe in r:
-                if r.index(recipe) >= 16: break
+            counter = 0
+            start_index = (offset - 1) * 16 
+            for recipe in r[start_index:]:
+                counter += 1
+                if counter > 16: break
                 r_id = recipe['id']
                 results.append(run_get(r_id, len(search_terms)))
 

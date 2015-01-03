@@ -86,7 +86,7 @@
 					
 						<h1 class="text-center main-color"> 
 							
-						<span style="font-family: serif; font-weight: 500; padding: 20px; margin-top: 30px">PANTRY PAL</span>
+						<span style="font-family: serif; font-weight: 500; padding: 20px; margin-top: 30px;">PANTRY PAL</span>
 							<span class="visible-desktop">Helping you decide what to make and how to make it</span>
 							<form class="form-signin" id="user_form" method="POST" action="/PantryPal_app/">
             					{% csrf_token %}
@@ -98,7 +98,8 @@
 					            <div>
 					            	<input type="number" size="50" name="time" value="" placeholder="Desired preparation time? (optional)" id="time" class="get_recipes">
 					            </div>	
-					            <span id="form_submit"><a href="#features-section" style="display:;" onClick="$(this).closest('form').submit();">Search</a></span>
+					            <input type="hidden" name="page" value="1" id="page">
+					            <span id="form_submit"><a href="#features-section" onClick="$('#page').val('1'); $(this).closest('form').submit();">Search</a></span>
 					        </form>
 						
 							
@@ -133,12 +134,17 @@
 							<span class="white"><!-- WHITE SPACE-->
 								OUR <span class="main-color">RECIPES</span> 
 							</span>
-							<span class="white" style="float: right;
-								"><!-- WHITE SPACE-->
-								NEXT 
+							<span class="next"><!-- WHITE SPACE-->
+								<a class="" href="#feature-section">
+									<i class="fa-icon-chevron-right fa-icon-medium" style="
+								    font-size: 50px;"></i>
+								</a> 
 							</span>
-								<span class="white" style="float: left;"><!-- WHITE SPACE-->
-								PREV
+								<span class="prev"><!-- WHITE SPACE-->
+								<a class="" href="#feature-section">
+									<i class="fa-icon-chevron-left fa-icon-medium" style="
+								    font-size: 50px;"></i>
+								</a>
 							</span>	
 						</h1>
 					</div>
@@ -165,17 +171,23 @@
 				<header class="" >
 					<div class="text-center page-header">
 						<h1 class="">
-							<span id="go_up">
+							<span id="go_up" class="white">
 								<a href="#header-section" title="" style="text-decoration: initial">
 								  <i class="fa-icon-chevron-up fa-icon-medium" style="
 								    font-size: 50px;"></i>
 								</a>
 							</span>
-							<span class="white" style="float: right; padding-bottom: 20px;"><!-- WHITE SPACE-->
-								NEXT 
+							<span class="next" style="padding-bottom: 20px;"><!-- WHITE SPACE-->
+								<a class="" href="#feature-section">
+									<i class="fa-icon-chevron-right fa-icon-medium" style="
+								    font-size: 50px;"></i>
+								</a> 
 							</span>
-								<span class="white" style="float: left; padding-bottom: 20px; "><!-- WHITE SPACE-->
-								PREV
+								<span class="prev" style="padding-bottom: 20px;"><!-- WHITE SPACE-->
+								<a class="" href="#feature-section">
+									<i class="fa-icon-chevron-left fa-icon-medium" style="
+								    font-size: 50px;"></i>
+								</a>
 							</span>	
 						</h1>
 					</div>
@@ -1179,6 +1191,36 @@ jQuery('#header-section').bind('inview', function (event, visible) {
 				    }, 1000);
 			        // $('#features-section').scroll();
 			    }
+			});
+		</script>
+		<script>
+			$('.next a').click(function() {
+				curPage = parseInt($('#page').val());
+			    nextPage = curPage + 1;
+
+			    if (nextPage > 1) {
+			    	$('.prev').css('display', 'inline-block');
+			    }
+
+			    $('#page').val(nextPage.toString());
+			    $("#query").val($('.next').data('search_terms'));
+			    $("#time").val($('.next').data('max_time'));
+				$('form').submit();
+			});
+		</script>
+		<script>
+			$('.prev a').click(function() {
+				curPage = parseInt($('#page').val());
+			    prevPage = curPage - 1;
+
+			    if (prevPage == 1) {
+			    	$('.prev').css('display', 'none');
+			    }
+
+			    $('#page').val(prevPage.toString());
+			    $("#query").val($('.next').data('search_terms'));
+			    $("#time").val($('.next').data('max_time'));
+				$('form').submit();
 			});
 		</script>
 </body>

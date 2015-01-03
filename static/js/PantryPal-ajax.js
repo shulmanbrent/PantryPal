@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	$("#user_form").submit(function(event) {
+		$('.next').data('search_terms', $("#query").val());
+		$('.next').data('max_time', $("#time").val());
+
 	    $.post('/PantryPal_app/search/', $(this).serialize() , function(data){
 	    	$("#search_content").hide().html(data).fadeIn(1500);
 	    });
@@ -7,6 +10,7 @@ $(document).ready(function(){
 	    $("#search_content").fadeIn();
 	    //allow for smooth scroll
 	    $('#go_up').localScroll();
+
 	    event.preventDefault();
 	});
 });
@@ -18,5 +22,5 @@ $(document).ajaxStart(function() {
 }).ajaxStop(function() {
 	$('#spinner').css("display", "none");
 	$('#search_content').css("display", "inherit");
-
+	$('.next').css('display', 'inline-block');		
 });

@@ -39,13 +39,18 @@ def search(request):
         search_terms = request.POST['query'].strip()
         # converstion to seconds
 
+        # handles empty max_time input
         if request.POST['time']:
             max_time = str(int(request.POST['time']) * 60)
         else:
             max_time = '3600'
 
+        # Page number they wish to return
+        offset = int(request.POST['page'])
+
+
         # Run our Yummly function to get the results list!
-        result_list = run_query(search_terms, max_time)
+        result_list = run_query(search_terms, max_time, offset)
 
 
     # Return a rendered response to send to the client.
