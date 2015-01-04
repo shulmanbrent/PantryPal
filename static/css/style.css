@@ -828,7 +828,7 @@ FORM.......................................1785
 				text-transform:uppercase;
 			}
 		.thumbnail{
-			background-color: rgba(255, 255, 255, 0.3);
+			background-color: rgba(255, 255, 255, 0.83);
 			display: block;
 			border-bottom-right-radius: 3px;
 			border-bottom-left-radius: 3px;
@@ -837,7 +837,23 @@ FORM.......................................1785
 			-webkit-box-shadow: rgb(153, 153, 153) 0px 1px 1px;
 			-moz-box-shadow: rgb(153, 153, 153) 0px 1px 1px;
 			padding:0px; margin-bottom:30px;
+			min-height: 200px;
 		}
+
+		.questions .thumbnail{
+			background-color: rgba(255, 255, 255, 0.83);
+			display: block;
+			border-bottom-right-radius: 3px;
+			border-bottom-left-radius: 3px;
+			overflow: hidden;
+			box-shadow: rgb(153, 153, 153) 0px 1px 1px;
+			-webkit-box-shadow: rgb(153, 153, 153) 0px 1px 1px;
+			-moz-box-shadow: rgb(153, 153, 153) 0px 1px 1px;
+			padding:0px; margin-bottom:30px;
+			min-height: 200px;
+			max-height: 200px;
+		}
+
 		
 		.thumbnail img{
 			min-width:100%;
