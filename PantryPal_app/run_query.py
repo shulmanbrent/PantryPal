@@ -20,19 +20,17 @@ def run_query(search_terms, max_time, offset):
     
     # Construct the latter part of our request's URL.
     # Sets the format of the response to JSON and sets other properties.
-    search_url = "{0}_app_id={1}&_app_key={2}&requirePictures=true&maxResult={3}&start={4}&maxTotalTimeInSeconds={5}".format(
+    search_url = "{0}_app_id={1}&_app_key={2}&requirePictures=true&maxResult={3}&start={4}".format(
         root_url,
         yummly_app_id,
         yummly_api_key,
         maxResult,
-        start,
-        max_time)
+        start)
     
-    # for term in query:
-    #     ingredient = "&allowedIngredient[]={0}".format(
-    #         term)
-    #     search_url += ingredient
-
+    if max_time.isdigit():
+        maxTimeString = "&maxTotalTimeInSeconds={0}".format(
+            max_time)
+        search_url += maxTimeString
 
     if search_terms:
         for term in search_terms:
