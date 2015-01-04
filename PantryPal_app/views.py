@@ -15,14 +15,6 @@ def index(request):
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
     result_list = []
 
-    if request.method == 'POST':
-        query = request.POST['query'].strip()
-
-        if query:
-            # Run our Yummly function to get the results list!
-            result_list = run_query(query)
-
-
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
