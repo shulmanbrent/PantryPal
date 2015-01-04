@@ -35,7 +35,7 @@ def search(request):
         if request.POST['time']:
             max_time = str(int(request.POST['time']) * 60)
         else:
-            max_time = '3600'
+            max_time = ''
 
         # Page number they wish to return
         offset = int(request.POST['page'])
