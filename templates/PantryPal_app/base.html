@@ -131,18 +131,18 @@
 		<!-- PROJECTS HEADER-->
 				<header class="" >
 					<div class="text-center page-header">
-						<h1 class="">
+						<h1 id="ourrecipes">
 							<span class="white"><!-- WHITE SPACE-->
 								OUR <span class="main-color">RECIPES</span> 
 							</span>
 							<span class="next"><!-- WHITE SPACE-->
-								<a class="" href="#feature-section">
+								<a class="" href="#ourrecipes">
 									<i class="fa-icon-chevron-right fa-icon-medium" style="
 								    font-size: 50px;"></i>
 								</a> 
 							</span>
 								<span class="prev"><!-- WHITE SPACE-->
-								<a class="" href="#feature-section">
+								<a class="" href="#ourrecipes">
 									<i class="fa-icon-chevron-left fa-icon-medium" style="
 								    font-size: 50px;"></i>
 								</a>
@@ -179,13 +179,13 @@
 								</a>
 							</span>
 							<span class="next" style="padding-bottom: 20px;"><!-- WHITE SPACE-->
-								<a class="" href="#feature-section">
+								<a class="" href="#ourrecipes">
 									<i class="fa-icon-chevron-right fa-icon-medium" style="
 								    font-size: 50px;"></i>
 								</a> 
 							</span>
 								<span class="prev" style="padding-bottom: 20px;"><!-- WHITE SPACE-->
-								<a class="" href="#feature-section">
+								<a class="" href="#ourrecipes">
 									<i class="fa-icon-chevron-left fa-icon-medium" style="
 								    font-size: 50px;"></i>
 								</a>
@@ -235,7 +235,7 @@
 				
 				<h3 class="main-color-line">Our vision</h3>
 				<h4 class="caption-descr" style="text-align: justify; "><i class="fa-icon-quote-left main-color"></i>
-				My sister is an up and coming young chef, mixing and matching ingredients all the time. One day, I saw her looking online at dozens of different website trying to find recipes to fit her ingredients. I made this tool for her and other aspiring chefs.<i class="fa-icon-quote-right main-color"></i>
+				My sister is an up and coming young chef, mixing and matching ingredients all the time. One day, I saw her looking online at dozens of different websites trying to find recipes to fit her ingredients. I made this tool for her and other aspiring chefs.<i class="fa-icon-quote-right main-color"></i>
 				</h4>
 				<h4 class=""> - <strong>Brent Shulman</strong></h4>
 				
@@ -441,7 +441,13 @@
   </div>
 	
 	</section>
-	<section id="map-section" style="background: url(/static/img/foods.jpg) center center;">
+	<section id="map-section" style="background: url(/static/img/foods.jpg) center center; padding-top: 50px; ">
+		<div>
+			<h4 style="color: white;">Search results provided by</h4>
+			<a href="http://www.yummly.com">
+				<img src='http://static.yummly.com/api-logo.png'/>
+			</a>
+		</div>
 	</section>
 </footer>
 
@@ -499,6 +505,8 @@ jQuery(document).ready(function(){
 	jQuery('#nav3').localScroll(1000);
 	jQuery('#nav4').localScroll(1000);
 	jQuery('#nav5').localScroll(1000);
+	jQuery('.next').localScroll();
+	jquery('.prev').localScroll();
 	//.parallax(xPosition, speedFactor, outerHeight) options:
 	//xPosition - Horizontal position of the element
 	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
