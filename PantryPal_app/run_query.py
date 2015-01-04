@@ -37,7 +37,7 @@ def run_query(search_terms, max_time, offset):
             if "_" in term:
                 term = term.replace("_", "%20")
             ingredient = "&allowedIngredient[]={0}".format(
-                term)
+                term.lower())
             search_url += ingredient    
 
 
