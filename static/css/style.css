@@ -1945,3 +1945,9 @@ span#form_submit a {
 	background: #fff url(../img/png.png) top left repeat;
 	display: none;
 }
+
+/*********************** FAQ *****************************/
+
+.caption p {
+	font-weight: bold;
+}
