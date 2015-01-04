@@ -1806,7 +1806,7 @@ form .get_recipes {
 	height: 40px;
 	min-width: 300px;
     background: transparent;
-    background: rgba(57, 46, 34, 0.52);
+    background: rgba(29, 27, 24, 0.91);
     background-clip: padding-box;
     
     border: none;
@@ -1847,7 +1847,7 @@ form .get_recipes {
 
 
 .get_recipes:focus {
-    background: rgba(57, 46, 34, 0.2);
+    background: rgba(57, 46, 34, 0.72);
 
     box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.2), 
                         0 1px 0 rgba(255, 255, 255, 0.7), 
