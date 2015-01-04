@@ -22,5 +22,7 @@ $(document).ajaxStart(function() {
 }).ajaxStop(function() {
 	$('#spinner').css("display", "none");
 	$('#search_content').css("display", "inherit");
-	$('.next').css('display', 'inline-block');		
+	if ($('.needed').length == 16)	{
+		$('.next').css('display', 'inline-block');
+	}	
 });
