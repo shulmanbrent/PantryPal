@@ -48,9 +48,9 @@
     <div class="navbar navbar-static-top" id="topnavbar"> 
       <!-- navbar-fixed-top -->
       <div class="navbar-inner" id="navbartop">
-        <div class="container"> <a class="brand" href="#"> 
+        <div class="container"><span id="flag"><a class="brand" href="#header-section"> 
 		<span>Pantry Pal</span>
-		<!--<img src="{% static "img/Logo.png" %}" alt="Logo">--></a>
+		<!--<img src="{% static "img/Logo.png" %}" alt="Logo">--></a></span>
           <div id="main-nav" class="scroller-spy">
             <nav class="nav-collapse collapse" >
               <ul class="nav" id="nav">
@@ -508,6 +508,7 @@ jQuery(document).ready(function(){
 	jQuery('.prev').localScroll();
 	jQuery('.lead').localScroll();
 	jQuery('.go_faq').localScroll();
+	jQuery('#flag').localScroll();
 	//.parallax(xPosition, speedFactor, outerHeight) options:
 	//xPosition - Horizontal position of the element
 	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
