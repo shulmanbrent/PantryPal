@@ -25,11 +25,11 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 SECRET_KEY = 'y1y&rrqlvwe+f1q070(gc-i21@)rubbrfjjrtdgbc)b91@*0n^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -117,7 +117,7 @@ TEMPLATE_DIRS = (
 # # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# # Allow all host headers
+# Allow all host headers
 # ALLOWED_HOSTS = ['*']
 
 # # Static asset configuration
