@@ -62,7 +62,7 @@ def run_query(search_terms, max_time, offset):
         r = json_response['matches']
 
         if r:
-            r = sorted(r, cmp=lambda x,y: cmp(len(x['ingredients']), len(y['ingredients'])))
+            r = sorted(r, cmp=lambda x, y: cmp(len(x['ingredients']), len(y['ingredients'])))
 
             counter = 0
             start_index = (offset - 1) * 16 
