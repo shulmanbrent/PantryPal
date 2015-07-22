@@ -72,10 +72,24 @@
 				<li><a href="#contact-section">Contact</a> </li>
               </ul>
             </nav>
-			
+				
 			
           </div>
+        
+          <nav class="nav-collapse collapse" style="float: right;">
+                <ul class="nav" id="nav">
+          	        {% if user.is_authenticated and user.is_active %}
+          	        <li class='active'><a>Welcome {{ user.username }}!</a></li>
+          	        <li><a href="/PantryPal_app/logout/">Logout</a></li>
+          	        {% else %}
+          	        <li><a href="/PantryPal_app/login/">Login</a></li>
+          	        <li class='active'><a href="/PantryPal_app/register/">Register Here</a></li>
+          	        {% endif %}
+          	    </ul>
+          </nav>
         </div>
+
+                
       </div>
     </div>
   
@@ -284,7 +298,7 @@
 <!-- /FEATURE section-->
 
 <!-- /SLOGAN section-->
-<section class="" id="slogan-section-3" style="background-image: url({% static "img/fruit_background.jpg" %})">
+<section class="" id="slogan-section-3" style="background-image: url({% static "img/fruit_background.jpg" %}); background-attachment: inherit;">
 	<div class="container">
 		<div class="row-fluid">
 			<div class="" style="text-align: center; padding: 40px;"><!--LOGO-->

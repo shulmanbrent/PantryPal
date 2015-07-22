@@ -11,5 +11,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^PantryPal_app/', include('PantryPal_app.urls')),
     url(r'^static/', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    url(r'^', lambda r: HttpResponseRedirect('PantryPal_app/'))
+    url(r'^$', lambda r: HttpResponseRedirect('PantryPal_app/')),
 )
