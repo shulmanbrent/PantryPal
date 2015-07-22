@@ -34,6 +34,9 @@ def search(request):
     if request.method == 'POST':
         search_terms = request.POST['query'].strip()
 
+        if not request.user.is_authenticated():
+            render_to_response('PantryPal_app/search.html', {'result_list': result_list}, context)
+
         # converstion to seconds
         # handles empty max_time input
         if request.POST['time']:
@@ -43,14 +46,16 @@ def search(request):
 
         # Page number they wish to return
         offset = int(request.POST['page'])
-        if request.user.is_authenticated():
+
+        # Run our Yummly function to get the results list!
+        result_list = run_query(search_terms, max_time, offset)
+
+        # If user is authenticated and their query returned results
+        if  result_list:
             q = Query(id = Query.objects.latest('id').id + 1,
                       user = request.user.username,
                       query = search_terms)
             q.save()
-        # Run our Yummly function to get the results list!
-        result_list = run_query(search_terms, max_time, offset)
-
 
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
@@ -87,6 +92,11 @@ def register(request):
             # Update our variable to tell the template registration was successful.
             registered = True
 
+            # Login User after registration
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            login(request, user)
         # Invalid form or forms - mistakes or something else?
         # Print problems to the terminal.
         # They'll also be shown to the user.
@@ -127,10 +137,10 @@ def user_login(request):
             if user.is_active:
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
-                login(request, user)
+                
                 return HttpResponseRedirect('/PantryPal_app/')
             else:
-                # An inactive account was used - no logging in!
+                # An inactive accountlogin(request, user) was used - no logging in!
                 return HttpResponse("Your PantryPal_app account is disabled.")
         else:
             # Bad login details were provided. So we can't log the user in.

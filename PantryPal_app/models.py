@@ -7,5 +7,5 @@ class Query(models.Model):
 	user =  models.CharField(max_length=30)
 	query = models.CharField(max_length=200)
 
-	def __unicode__():
-		return self.user + ": " + query
+	def __unicode__(self):
+		return self.user + ": " + self.query
