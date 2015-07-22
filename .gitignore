@@ -43,3 +43,4 @@ Temporary Items
 venv
 *.pyc
 staticfiles
+*migrations*
