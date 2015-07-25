@@ -6,14 +6,13 @@
 
     <body>
         <h1>Register with PantryPal</h1>
-
+    
         {% if registered %}
         Rango says: <strong>Thank you for registering!</strong>
         <a href="/">Return to the homepage.</a><br />
         {% else %}
-        <strong>register here!</strong><br />
-
-        <form id="user_form" method="post" action="/PantryPal_app/register/"
+        
+        <form class="form-signin" id="user_form" method="POST" action="/PantryPal_app/register/"
                 enctype="multipart/form-data">
 
             {% csrf_token %}
