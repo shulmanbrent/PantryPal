@@ -44,3 +44,4 @@ venv
 *.pyc
 staticfiles
 *migrations*
+*.bin

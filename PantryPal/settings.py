@@ -10,6 +10,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import secret_settings
+import dj_database_url
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SETTINGS_DIR = os.path.dirname(__file__)
@@ -22,7 +25,7 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y1y&rrqlvwe+f1q070(gc-i21@)rubbrfjjrtdgbc)b91@*0n^'
+SECRET_KEY = secret_settings.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -59,19 +62,23 @@ ROOT_URLCONF = 'PantryPal.urls'
 WSGI_APPLICATION = 'PantryPal.wsgi.application'
 
 
+EMAIL_HOST = secret_settings.EMAIL_HOST
+EMAIL_HOST_USER = secret_settings.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = secret_settings.EMAIL_HOST_PASSWORD
+EMAIL_PORT = secret_settings.EMAIL_PORT
+EMAIL_USE_TLS = secret_settings.EMAIL_USE_TLS
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'PantryPal DB',
-        'USER': 'postgres',
-        'PASSWORD': 'LagunaHills123',
-        'HOST': '',
-        'PORT': '5433',
-   }
-}
+# DATABASE_URL = 'postgres://wpgqagfhkyobtb:7CitdCMz0QEFpJ70V0xbvbvqnk@ec2-50-16-229-91.compute-1.amazonaws.com:5432/d2esnf05vda63l'
+#DATABASES = secret_settings.DATABASES
+# DATABASES = {}
+# Parse database configuration from $DATABASE_URL
+# DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
+DATABASES = secret_settings.DATABASES
+# Enable Connection Pooling (if desired)
+#DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

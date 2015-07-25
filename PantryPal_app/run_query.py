@@ -1,6 +1,9 @@
 import json
 import urllib, urllib2
 from PantryPal_app.run_get import run_get
+import sys
+sys.path.append('../..')
+import secret_settings
 
 def run_query(search_terms, max_time, offset):
     # Specified the root
@@ -13,8 +16,8 @@ def run_query(search_terms, max_time, offset):
     start = 0
 
     # Setup authentication with the Yummly servers.
-    yummly_app_id = '92d67e12'
-    yummly_api_key = '1c9dd40cdaa1ee28b9a65429530fcfe6'
+    yummly_app_id = secret_settings.YUMMLY_APP_ID
+    yummly_api_key = secret_settings.YUMMLY_API_KEY
 
     search_terms = search_terms.split()
     
