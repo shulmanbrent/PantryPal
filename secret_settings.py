@@ -27,4 +27,5 @@ YUMMLY_APP_ID = '92d67e12'
 YUMMLY_API_KEY = '1c9dd40cdaa1ee28b9a65429530fcfe6'
 
 DATABASE_URL = 'postgres://wpgqagfhkyobtb:7CitdCMz0QEFpJ70V0xbvbvqnk@ec2-50-16-229-91.compute-1.amazonaws.com:5432/d2esnf05vda63l'
+DATABASES = {}
 DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
