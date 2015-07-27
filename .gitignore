@@ -45,4 +45,3 @@ venv
 staticfiles
 *.bin
 *.logs
-secret_settings.py
