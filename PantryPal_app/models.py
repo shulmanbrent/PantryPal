@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Query(models.Model):
 	id = models.IntegerField(primary_key=True)
 	user =  models.CharField(max_length=30)
-	query = models.CharField(max_length=200)
+	query = models.CharField(max_length=256)
 
 	def __unicode__(self):
 		return self.user + ": " + self.query
