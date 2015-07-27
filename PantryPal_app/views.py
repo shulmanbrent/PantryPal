@@ -49,7 +49,6 @@ def search(request):
 
         # Run our Yummly function to get the results list!
         result_list = run_query(search_terms, max_time, offset)
-
         # If user is authenticated and their query returned results
         if  result_list:
             q = Query(id = Query.objects.latest('id').id + 1,
