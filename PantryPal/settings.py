@@ -25,7 +25,7 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_settings.SECRET_KEY
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -62,11 +62,11 @@ ROOT_URLCONF = 'PantryPal.urls'
 WSGI_APPLICATION = 'PantryPal.wsgi.application'
 
 
-EMAIL_HOST = secret_settings.EMAIL_HOST
-EMAIL_HOST_USER = secret_settings.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = secret_settings.EMAIL_HOST_PASSWORD
-EMAIL_PORT = secret_settings.EMAIL_PORT
-EMAIL_USE_TLS = secret_settings.EMAIL_USE_TLS
+EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_PORT = os.environ['EMAIL_PORT']
+EMAIL_USE_TLS = True
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -76,7 +76,8 @@ EMAIL_USE_TLS = secret_settings.EMAIL_USE_TLS
 # DATABASES = {}
 # Parse database configuration from $DATABASE_URL
 # DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
-DATABASES = secret_settings.DATABASES
+DATABASES = DATABASES = {}
+DATABASES['default'] = dj_database_url.config(default=os.environ['HEROKU_POSTGRESQL_AMBER_URL'])
 # Enable Connection Pooling (if desired)
 #DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
