@@ -144,4 +144,4 @@ def user_login(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, "PantryPal_app/index.html", {})
+    return HttpResponseRedirect('/PantryPal_app/')
