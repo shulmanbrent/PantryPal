@@ -1,4 +1,5 @@
 import json
+import os
 import urllib, urllib2
 
 def run_get(recipe_id, term_count):
@@ -6,8 +7,8 @@ def run_get(recipe_id, term_count):
     root_url = 'http://api.yummly.com/v1/api/recipe'
 
     # Setup authentication with the Yummly servers.
-    yummly_app_id = '92d67e12'
-    yummly_api_key = '1c9dd40cdaa1ee28b9a65429530fcfe6'
+    yummly_app_id = os.environ['YUMMLY_APP_ID']
+    yummly_api_key = os.environ['YUMMLY_API_KEY']
 
     get_url = "{0}/{1}?_app_id={2}&_app_key={3}".format(
     	root_url,
