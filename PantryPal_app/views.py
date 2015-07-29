@@ -53,6 +53,7 @@ def search(request):
         if  result_list:
             q = Query(id = Query.objects.latest('id').id + 1,
                       user = request.user.username,
+                      user_email = request.user.email,
                       query = search_terms)
             q.save()
 
