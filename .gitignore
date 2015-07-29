@@ -45,3 +45,4 @@ venv
 staticfiles
 *.bin
 *.logs
+.env
