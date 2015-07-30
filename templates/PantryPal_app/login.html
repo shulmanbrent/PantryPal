@@ -18,6 +18,7 @@
     <!-- !important THIS STYLE CSS ON BOTTOM OF STYLEs LIST-->
     <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet"> 
     <link href="{% static "css/prettyPhoto.css" %}" rel="stylesheet" type="text/css" />
+    <link href="{% static "css/login.css" %}" rel="stylesheet" type="text/css" />
     <link href="{% static "js/google-code-prettify/prettify.css" %}" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
@@ -52,37 +53,6 @@
 <!-- TOP SECTION-->
 <section class="headertop needhead" id="header-section" style="background-image: url({% static "img/jars.jpg" %})">
 
- <!-- ################-->
- <!-- START TOP MENU -->
- <!-- ################-->
-  <nav class="nav-top">
-    <div class="navbar navbar-static-top" id="topnavbar"> 
-      <!-- navbar-fixed-top -->
-      <div class="navbar-inner" id="navbartop">
-        <div class="container"><span id="flag"><a class="brand" href="#header-section"> 
-        <span>Pantry Pal Login</span>
-        <!--<img src="{% static "img/Logo.png" %}" alt="Logo">--></a></span>
-          <div id="main-nav" class="scroller-spy">
-            <nav class="nav-collapse collapse" >
-              <ul class="nav" id="nav">
-                <li class="active"><a href="/">Home</a> </li>
-              </ul>
-            </nav>
-                
-            
-          </div>
-        </div>
-
-                
-      </div>
-    </div>
-  
-   <!-- ################-->
- <!-- END TOP MENU -->
- <!-- ################-->       
-    </nav>
-    <!-- END HEADER headertop NAV -->
-
             
 <!-- HEADER MARKETING SLOGAN-->
 <header class="container">
@@ -91,29 +61,24 @@
             <div class="hero-unit text-center" style="padding: 0px; padding-top=10px; ">
                 
                     <div class="inner-wrap-hero">
-                     
-                        <span style="font-family: serif; font-weight: 500; padding: 20px; margin-top: 30px;">PANTRY PAL</span>
                             <br>
-                            <br>
-                            <form id="login_form" method="post" action="/PantryPal_app/login/">
+                            <section class="login">
+                              <form id="login_form" accept-charset="utf-8" method="post" action="/PantryPal_app/login/">
+                                <h1>Log in to PantryPal</h1>
                                 {% csrf_token %}
-                                Username: <input type="text" name="username" value="" size="50" />
-                                <br />
-                                Password: <input type="password" name="password" value="" size="50" />
-                                <br />
-
+                                <input type="text" value="" placeholder="Username" tabindex="20" name="username">
+                                <div class="password-container">
+                                  <input type="password" placeholder="Password" tabindex="21" name="password">
+                                </div>
                                 <input type="submit" value="submit" />
-                            </form>
+                                <!-- <button class="button submit" data-analytics="sign-in" type="submit" value="submit">Log in to PantryPal</button>
+                                 --><!-- <span class="create-account">
+                                  <a data-analytics="create-account" href="https://disqus.com/profile/signup/">Create an Account</a>
+                                </span> -->
+                                </form>
+                            </section>
                         
-                    </div>
-                <!--<hr class="half">-->
-            <span class="gobottom" id="nav2">
-                    <a href="#features-section" title="">
-                        <i class="fa-icon-chevron-down fa-icon-large"></i>
-                    </a>
-            </span>
-                
-            
+                    </div>            
             </div>  
         </div><!-- / HERO UNIT-->
     </div><!-- / HERO WRAP-->
