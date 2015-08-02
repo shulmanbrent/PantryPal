@@ -113,19 +113,34 @@
                             <a href="/"><h3>Return to the homepage.</h3></a><br />
                             {% else %}
                             
-                            <form class="form-signin" id="user_form" method="POST" action="/PantryPal_app/register/"
+                            <section class="login">
+                              <form id="form-signin" class="form-signin" accept-charset="utf-8" method="POST" action="/PantryPal_app/register/">
+                                <h1>Log in to PantryPal</h1>
+                                {% csrf_token %}
+                                <input type="text" value="" placeholder="First" tabindex="20" name="{{ user_form.first_name }}">
+                                <div class="password-container">
+                                  <input type="password" placeholder="Last" tabindex="21" name="{{ user_form.last_name }}">
+                                </div>
+                                <!-- <input type="submit" value="submit" /> -->
+                                <button class="button submit" data-analytics="sign-in" type="submit" value="submit">Login</button>
+<!--                                  <span class="create-account">
+                                  <a data-analytics="create-account" href="PantryPal_app/register">Create an Account</a>
+                                </span> -->
+                                </form>
+                            </section>
+<!--                             <form class="form-signin" id="user_form" method="POST" action="/PantryPal_app/register/"
                                     enctype="multipart/form-data">
 
                                 {% csrf_token %}
 
-                                <!-- Display each form. The as_p method wraps each element in a paragraph
+                                Display each form. The as_p method wraps each element in a paragraph
                                      (<p>) element. This ensures each element appears on a new line,
-                                     making everything look neater. -->
+                                     making everything look neater.
                                 {{ user_form }}
                                 <br>
-                                <!-- Provide a button to click to submit the form. -->
+                                <!-- Provide a button to click to submit the form.
                                 <input type="submit" name="submit" value="Register" />
-                            </form>
+                            </form> -->
                             {% endif %}
                         
                     </div>
