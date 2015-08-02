@@ -127,7 +127,7 @@ def user_login(request):
         # If None, no user with matching credentials was found.
         if user:
             if user.is_active:
-                return HttpResponseRedirect('/PantryPal_app/')
+                return HttpResponseRedirect('PantryPal_app/')
             else:
                 # An inactive accountlogin(request, user) was used
                 return HttpResponse("Your PantryPal_app account is disabled.")
