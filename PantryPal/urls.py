@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^PantryPal_app/', include('PantryPal_app.urls')),
     url(r'^static/', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     url(r'^$', lambda r: HttpResponseRedirect('PantryPal_app/')),
