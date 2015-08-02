@@ -134,7 +134,7 @@ form {
 }
 
 .login h1, .signup h1 {
-    color: #546673;
+    color: #F89406;
     font-family: "ProximaNova","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 600;
     margin-bottom: 30px;
@@ -214,7 +214,7 @@ button, input, select, textarea {
 }
 
 button.submit {
-    background: none repeat scroll 0 0 #2E9FFF;
+    background: none repeat scroll 0 0 #F89706;
     border: medium none;
     border-radius: 5px 5px 5px 5px;
     box-shadow: none;
