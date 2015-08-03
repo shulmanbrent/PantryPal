@@ -117,10 +117,7 @@
                               <form id="form-signin" class="form-signin" accept-charset="utf-8" method="POST" action="/PantryPal_app/register/">
                                 <h1>Log in to PantryPal</h1>
                                 {% csrf_token %}
-                                <input type="text" value="" placeholder="First" tabindex="20" name="{{ user_form.first_name }}">
-                                <div class="password-container">
-                                  <input type="password" placeholder="Last" tabindex="21" name="{{ user_form.last_name }}">
-                                </div>
+                                {{ user_form.as_p }}
                                 <!-- <input type="submit" value="submit" /> -->
                                 <button class="button submit" data-analytics="sign-in" type="submit" value="submit">Login</button>
 <!--                                  <span class="create-account">
