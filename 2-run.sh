@@ -9,4 +9,5 @@ __volume_cntr=/data
 docker run -it \
 	--volume=$__volume_host:$__volume_cntr \
 	--publish=5000:5000 \
+	--publish=8888:8888 \
 	$__image
