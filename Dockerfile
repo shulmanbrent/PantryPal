@@ -18,6 +18,10 @@ RUN apt-get install -y nano locales curl unzip openssl
 # Download and install heroku toolbelt
 RUN wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
+# Hopefully this fixes some weird issue where
+# foreman no longer worked on download of toolbelt
+RUN gem install foreman
+
 # Stage files in current folder in /data
 ADD . /data
 
