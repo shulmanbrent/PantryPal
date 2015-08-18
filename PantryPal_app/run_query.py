@@ -1,9 +1,11 @@
 import json
 import os
-import urllib, urllib2
+import urllib
+import urllib2
 from PantryPal_app.run_get import run_get
 import sys
 sys.path.append('../..')
+
 
 def run_query(search_terms, max_time, offset):
     # Specified the root
@@ -20,7 +22,7 @@ def run_query(search_terms, max_time, offset):
     yummly_api_key = os.environ['YUMMLY_API_KEY']
 
     search_terms = search_terms.split()
-    
+
     # Construct the latter part of our request's URL.
     # Sets the format of the response to JSON and sets other properties.
     search_url = "{0}_app_id={1}&_app_key={2}&requirePictures=true&maxResult={3}&start={4}".format(
@@ -29,7 +31,7 @@ def run_query(search_terms, max_time, offset):
         yummly_api_key,
         maxResult,
         start)
-    
+
     if max_time.isdigit():
         maxTimeString = "&maxTotalTimeInSeconds={0}".format(
             max_time)
@@ -41,17 +43,17 @@ def run_query(search_terms, max_time, offset):
                 term = term.replace("_", "%20")
             ingredient = "&allowedIngredient[]={0}".format(
                 term.lower())
-            search_url += ingredient    
+            search_url += ingredient
 
     # Create a 'password manager' which handles authentication for us.
-    #password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
-    #password_mgr.add_password(None, search_url, username, bing_api_key)
+    # password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
+    # password_mgr.add_password(None, search_url, username, bing_api_key)
 
     # Create our results list which we'll populate.
     results = []
 
     try:
-         #Connect to the server and read the response generated.
+         # Connect to the server and read the response generated.
         response = urllib2.urlopen(search_url).read()
 
         # Convert the string response to a Python dictionary object.
@@ -64,18 +66,20 @@ def run_query(search_terms, max_time, offset):
         r = json_response['matches']
 
         if r:
-            r = sorted(r, cmp=lambda x, y: cmp(len(x['ingredients']), len(y['ingredients'])))
+            r = sorted(
+                r, cmp=lambda x, y: cmp(len(x['ingredients']), len(y['ingredients'])))
 
             counter = 0
-            start_index = (offset - 1) * 16 
+            start_index = (offset - 1) * 16
             for recipe in r[start_index:]:
                 counter += 1
-                if counter > 16: break
+                if counter > 16:
+                    break
                 r_id = recipe['id']
                 results.append(run_get(r_id, len(search_terms)))
 
         # Loop through each page returned, populating out results list.
-        #for result in json_response['d']['results']:
+        # for result in json_response['d']['results']:
         #    results.append({
         #        'title': result['Title'],
         #        'link': result['Url'],
