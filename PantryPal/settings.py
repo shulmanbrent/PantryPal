@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'PantryPal_app',
+    'mail',
 )
 
 MIDDLEWARE_CLASSES = (
