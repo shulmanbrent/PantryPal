@@ -9,7 +9,4 @@ whitenoise==1.0.6
 wsgiref==0.1.2
 django-social-auth
 django-grappelli
-cython
-numpy
-gensim
 beautifulsoup4
